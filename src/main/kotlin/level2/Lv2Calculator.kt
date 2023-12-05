@@ -2,7 +2,7 @@ package level2
 import exception.CustomDividedZeroException
 import level2.Operator.*
 
-class Calculator {
+class Lv2Calculator {
     fun operating(
             operator: Operator,
             a: Int,

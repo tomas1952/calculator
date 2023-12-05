@@ -7,7 +7,7 @@ import io.kotest.matchers.shouldBe
 import level2.Operator.*
 
 class CalculatorIntegerTest : BehaviorSpec({
-    val calculator = Calculator()
+    val calculator = Lv2Calculator()
 
     Given("10과 3이 주어졌을때") {
         val a = 10

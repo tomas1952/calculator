@@ -1,15 +1,12 @@
 package level2
-import exception.CustomDividedZeroException
-import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.comparables.shouldBeGreaterThan
-import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.floats.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import level2.Operator.*
 
 class CalculatorFloatTest : BehaviorSpec({
-    val calculator = Calculator()
+    val calculator = Lv2Calculator()
 
     Given("10과 3이 주어졌을때") {
         val a = 10.0f

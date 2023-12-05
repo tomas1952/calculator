@@ -1,29 +1,33 @@
 package level4.operation
 
+import java.lang.RuntimeException
+
 class MinusOperation : AbstractOperation {
-    // Int
-    override fun operate(a: Int, b: Int): Int = a.minus(b)
-    override fun operate(a: Int, b: Long): Long = a.minus(b)
-    override fun operate(a: Int, b: Float): Float  = a.minus(b)
-    override fun operate(a: Int, b: Double): Double  = a.minus(b)
-    
-    // Long
-    override fun operate(a: Long, b: Int): Long  = a.minus(b)
-    override fun operate(a: Long, b: Long): Long  = a.minus(b)
-    override fun operate(a: Long, b: Float): Float  = a.minus(b)
-    override fun operate(a: Long, b: Double): Double  = a.minus(b)
-    
-    // Float
-    override fun operate(a: Float, b: Int): Float  = a.minus(b)
-    override fun operate(a: Float, b: Long): Float  = a.minus(b)
-    override fun operate(a: Float, b: Float): Float  = a.minus(b)
-    override fun operate(a: Float, b: Double): Double  = a.minus(b)
-    
-    // Double
+    override fun operate(a: Number, b: Number): Number = when {
+        // Int
+        a is Int && b is Int -> a.minus(b)
+        a is Int && b is Long -> a.minus(b)
+        a is Int && b is Float -> a.minus(b)
+        a is Int && b is Double -> a.minus(b)
 
-    override fun operate(a: Double, b: Int): Double  = a.minus(b)
-    override fun operate(a: Double, b: Long): Double  = a.minus(b)
-    override fun operate(a: Double, b: Float): Double  = a.minus(b)
-    override fun operate(a: Double, b: Double): Double  = a.minus(b)
+        // Long
+        a is Long && b is Int -> a.minus(b)
+        a is Long && b is Long -> a.minus(b)
+        a is Long && b is Float -> a.minus(b)
+        a is Long && b is Double -> a.minus(b)
 
+        // Float
+        a is Float && b is Int -> a.minus(b)
+        a is Float && b is Long -> a.minus(b)
+        a is Float && b is Float -> a.minus(b)
+        a is Float && b is Double -> a.minus(b)
+
+        // Double
+        a is Double && b is Int -> a.minus(b)
+        a is Double && b is Long -> a.minus(b)
+        a is Double && b is Float -> a.minus(b)
+        a is Double && b is Double -> a.minus(b)
+
+        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+    }
 }

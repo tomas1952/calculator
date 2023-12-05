@@ -1,29 +1,33 @@
 package level4.operation
 
+import java.lang.RuntimeException
+
 class AddOperation : AbstractOperation {
-    // Int
-    override fun operate(a: Int, b: Int): Int = a.plus(b)
-    override fun operate(a: Int, b: Long): Long = a.plus(b)
-    override fun operate(a: Int, b: Float): Float  = a.plus(b)
-    override fun operate(a: Int, b: Double): Double  = a.plus(b)
-    
-    // Long
-    override fun operate(a: Long, b: Int): Long  = a.plus(b)
-    override fun operate(a: Long, b: Long): Long  = a.plus(b)
-    override fun operate(a: Long, b: Float): Float  = a.plus(b)
-    override fun operate(a: Long, b: Double): Double  = a.plus(b)
-    
-    // Float
-    override fun operate(a: Float, b: Int): Float  = a.plus(b)
-    override fun operate(a: Float, b: Long): Float  = a.plus(b)
-    override fun operate(a: Float, b: Float): Float  = a.plus(b)
-    override fun operate(a: Float, b: Double): Double  = a.plus(b)
-    
-    // Double
+    override fun operate(a: Number, b: Number): Number = when {
+        // Int
+        a is Int && b is Int -> a.plus(b)
+        a is Int && b is Long -> a.plus(b)
+        a is Int && b is Float -> a.plus(b)
+        a is Int && b is Double -> a.plus(b)
 
-    override fun operate(a: Double, b: Int): Double  = a.plus(b)
-    override fun operate(a: Double, b: Long): Double  = a.plus(b)
-    override fun operate(a: Double, b: Float): Double  = a.plus(b)
-    override fun operate(a: Double, b: Double): Double  = a.plus(b)
+        // Long
+        a is Long && b is Int -> a.plus(b)
+        a is Long && b is Long -> a.plus(b)
+        a is Long && b is Float -> a.plus(b)
+        a is Long && b is Double -> a.plus(b)
 
+        // Float
+        a is Float && b is Int -> a.plus(b)
+        a is Float && b is Long -> a.plus(b)
+        a is Float && b is Float -> a.plus(b)
+        a is Float && b is Double -> a.plus(b)
+
+        // Double
+        a is Double && b is Int -> a.plus(b)
+        a is Double && b is Long -> a.plus(b)
+        a is Double && b is Float -> a.plus(b)
+        a is Double && b is Double -> a.plus(b)
+
+        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+    }
 }

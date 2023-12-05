@@ -1,13 +1,10 @@
 package level2
-import exception.CustomDividedZeroException
-import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import level2.Operator.*
 
 class CalculatorLongTest : BehaviorSpec({
-    val calculator = Calculator()
+    val calculator = Lv2Calculator()
 
     Given("10과 3이 주어졌을때") {
         val a = 10L

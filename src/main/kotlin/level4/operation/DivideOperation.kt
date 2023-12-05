@@ -1,96 +1,55 @@
 package level4.operation
 
 import exception.CustomDividedZeroException
+import java.lang.RuntimeException
 
 class DivideOperation : AbstractOperation {
-    // Int
-    override fun operate(a: Int, b: Int): Int = if (b == 0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Int, b: Long): Long = if (b == 0L) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Int, b: Float): Float  = if (b == 0f) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
+    override fun operate(a: Number, b: Number): Number = when(b) {
+        is Int -> {
+            if (b == 0) throw CustomDividedZeroException()
 
-    override fun operate(a: Int, b: Double): Double  = if (b == 0.0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    
-    // Long
-    override fun operate(a: Long, b: Int): Long  = if (b == 0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Long, b: Long): Long  = if (b == 0L) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Long, b: Float): Float  = if (b == 0f) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Long, b: Double): Double  = if (b == 0.0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    
-    // Float
-    override fun operate(a: Float, b: Int): Float  = if (b == 0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Float, b: Long): Float  = if (b == 0L) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Float, b: Float): Float  = if (b == 0f) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Float, b: Double): Double  = if (b == 0.0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    
-    // Double
+            when (a) {
+                is Int -> a.div(b)
+                is Long -> a.div(b)
+                is Float -> a.div(b)
+                is Double -> a.div(b)
+                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+            }
+        }
+        is Long -> {
+            if (b == 0L) throw CustomDividedZeroException()
 
-    override fun operate(a: Double, b: Int): Double  = if (b == 0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Double, b: Long): Double  = if (b == 0L) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Double, b: Float): Double  = if (b == 0f) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
-    override fun operate(a: Double, b: Double): Double  = if (b == 0.0) {
-        throw CustomDividedZeroException()
-    } else {
-        a.div(b)
-    }
+            when (a) {
+                is Int -> a.div(b)
+                is Long -> a.div(b)
+                is Float -> a.div(b)
+                is Double -> a.div(b)
+                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+            }
+        }
+        is Float -> {
+            if (b == 0f) throw CustomDividedZeroException()
 
+            when (a) {
+                is Int -> a.div(b)
+                is Long -> a.div(b)
+                is Float -> a.div(b)
+                is Double -> a.div(b)
+                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+            }
+        }
+        is Double -> {
+            if (b == 0.0) throw CustomDividedZeroException()
+
+            when (a) {
+                is Int -> a.div(b)
+                is Long -> a.div(b)
+                is Float -> a.div(b)
+                is Double -> a.div(b)
+                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+            }
+        }
+
+        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+    }
 }
