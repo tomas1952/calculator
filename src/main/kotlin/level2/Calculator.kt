@@ -1,4 +1,5 @@
 package level2
+import exception.CustomDividedZeroException
 import level2.Operator.*
 
 class Calculator {
@@ -9,8 +10,8 @@ class Calculator {
     ): Int = when (operator) {
         minus -> a.minus(b)
         multiple -> a.times(b)
-        divide -> if (b == 0) throw RuntimeException("0은 나누기를 할 수 없습니다.") else a.div(b)
-        mod -> if (b == 0) throw RuntimeException("0은 나누기를 할 수 없습니다.") else a.mod(b)
+        divide -> if (b == 0) throw CustomDividedZeroException() else a.div(b)
+        mod -> if (b == 0) throw CustomDividedZeroException() else a.mod(b)
         else -> a.plus(b)
     }
     fun operating(
@@ -20,8 +21,8 @@ class Calculator {
     ): Long = when (operator) {
         minus -> a.minus(b)
         multiple -> a.times(b)
-        divide -> if (b == 0L) throw RuntimeException("0은 나누기를 할 수 없습니다.") else a.div(b)
-        mod -> if (b == 0L) throw RuntimeException("0은 나누기를 할 수 없습니다.") else a.mod(b)
+        divide -> if (b == 0L) throw CustomDividedZeroException() else a.div(b)
+        mod -> if (b == 0L) throw CustomDividedZeroException() else a.mod(b)
         else -> a.plus(b)
     }
 
@@ -32,8 +33,8 @@ class Calculator {
     ): Float = when (operator) {
         minus -> a.minus(b)
         multiple -> a.times(b)
-        divide -> if (b == 0.0f) throw RuntimeException("0은 나누기를 할 수 없습니다.") else a.div(b)
-        mod -> if (b == 0.0f) throw RuntimeException("0은 나누기를 할 수 없습니다.") else a.mod(b)
+        divide -> if (b == 0.0f) throw CustomDividedZeroException() else a.div(b)
+        mod -> if (b == 0.0f) throw CustomDividedZeroException() else a.mod(b)
         else -> a.plus(b)
     }
 
