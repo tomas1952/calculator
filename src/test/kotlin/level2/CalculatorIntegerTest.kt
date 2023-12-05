@@ -1,4 +1,6 @@
 package level2
+import exception.CustomDividedZeroException
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
@@ -53,16 +55,16 @@ class CalculatorIntegerTest : BehaviorSpec({
         val b = 0
 
         When("계산기로 나누면") {
-            Then("에러가 발생한다.") {
-                shouldThrowAny {
+            Then("devided zero 에러가 발생한다.") {
+                shouldThrow<CustomDividedZeroException> {
                     calculator.operating(divide, a, b)
                 }
             }
         }
 
         When("계산기로 나머지 연산을 하면") {
-            Then("에러가 발생한다.") {
-                shouldThrowAny {
+            Then("divided zero 에러가 발생한다.") {
+                shouldThrow<CustomDividedZeroException> {
                     calculator.operating(divide, a, b)
                 }
             }
