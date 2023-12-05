@@ -3,11 +3,11 @@ package level4
 import level4.operation.*
 
 class Lv4Calculator(
-    private val addOperation: AddOperation = AddOperation(),
-    private val minusOperation: MinusOperation = MinusOperation(),
-    private val multipleOperation: MultipleOperation = MultipleOperation(),
-    private val divideOperation: DivideOperation = DivideOperation(),
-    private val modOperation: ModOperation = ModOperation(),
+    private val addOperation: AbstractOperation = AddOperation(),
+    private val minusOperation: AbstractOperation = MinusOperation(),
+    private val multipleOperation: AbstractOperation = MultipleOperation(),
+    private val divideOperation: AbstractOperation = DivideOperation(),
+    private val modOperation: AbstractOperation = ModOperation(),
 ) {
     fun operate(operation: AbstractOperation, a: Number, b: Number) = operation.operate(a, b)
     fun add(a: Number, b: Number) = operate(addOperation, a, b)

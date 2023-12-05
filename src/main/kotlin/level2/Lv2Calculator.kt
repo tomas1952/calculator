@@ -3,7 +3,7 @@ import exception.CustomDividedZeroException
 import level2.Operator.*
 
 class Lv2Calculator {
-    fun operating(
+    fun operate(
             operator: Operator,
             a: Int,
             b: Int,
@@ -14,7 +14,7 @@ class Lv2Calculator {
         mod -> if (b == 0) throw CustomDividedZeroException() else a.mod(b)
         else -> a.plus(b)
     }
-    fun operating(
+    fun operate(
             operator: Operator,
             a: Long,
             b: Long,
@@ -26,7 +26,7 @@ class Lv2Calculator {
         else -> a.plus(b)
     }
 
-    fun operating(
+    fun operate(
             operator: Operator,
             a: Float,
             b: Float,
@@ -38,7 +38,7 @@ class Lv2Calculator {
         else -> a.plus(b)
     }
 
-    fun operating(
+    fun operate(
             operator: Operator,
             a: Double,
             b: Double,

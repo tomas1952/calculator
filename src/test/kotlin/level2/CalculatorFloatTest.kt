@@ -13,28 +13,28 @@ class CalculatorFloatTest : BehaviorSpec({
         val b = 0.3f
 
         When("계산기로 더하면") {
-            val result = calculator.operating(plus, a, b)
+            val result = calculator.operate(plus, a, b)
             Then("10.3이 나와야 한다.") {
                 result shouldBe 10.3f
             }
         }
 
         When("계산기로 빼면") {
-            val result = calculator.operating(minus, a, b)
+            val result = calculator.operate(minus, a, b)
             Then("9.7이 나와야 한다.") {
                 result shouldBe 9.7f
             }
         }
 
         When("계산기로 곱하면") {
-            val result = calculator.operating(multiple, a, b)
+            val result = calculator.operate(multiple, a, b)
             Then("3이 나와야 한다.") {
                 result shouldBe 3f
             }
         }
 
         When("계산기로 나누면") {
-            val result = calculator.operating(divide, a, b)
+            val result = calculator.operate(divide, a, b)
             Then("33.33332 ~ 33.33334 값이 나와야 한다.") {
                 result shouldBeGreaterThan 33.33332f
                 result shouldBeLessThan 33.33334f
@@ -42,7 +42,7 @@ class CalculatorFloatTest : BehaviorSpec({
         }
 
         When("계산기로 나머지 연산을 하면") {
-            val result = calculator.operating(mod, a, b)
+            val result = calculator.operate(mod, a, b)
             Then("0.1이 나와야 한다.") {
                 result shouldBeGreaterThan  0.0999995f
                 result shouldBeLessThan  0.1000005f
