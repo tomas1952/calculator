@@ -1,7 +1,7 @@
 package level4.operation
 
 import exception.CustomDividedZeroException
-import java.lang.RuntimeException
+import exception.InvalidTypeException
 
 class ModOperation : AbstractOperation {
     override fun operate(a: Number, b: Number): Number = when(b) {
@@ -13,7 +13,7 @@ class ModOperation : AbstractOperation {
                 is Long -> a.mod(b.toLong())
                 is Float -> a.mod(b.toFloat())
                 is Double -> a.mod(b.toDouble())
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
         is Long -> {
@@ -24,7 +24,7 @@ class ModOperation : AbstractOperation {
                 is Long -> a.mod(b)
                 is Float -> a.mod(b.toFloat())
                 is Double -> a.mod(b.toDouble())
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
         is Float -> {
@@ -35,7 +35,7 @@ class ModOperation : AbstractOperation {
                 is Long -> a.toFloat().mod(b)
                 is Float -> a.mod(b)
                 is Double -> a.mod(b.toDouble())
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
         is Double -> {
@@ -46,11 +46,11 @@ class ModOperation : AbstractOperation {
                 is Long -> a.toDouble().mod(b)
                 is Float -> a.mod(b)
                 is Double -> a.mod(b)
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
 
-        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+        else -> throw InvalidTypeException()
     }
 
 }

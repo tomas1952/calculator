@@ -1,7 +1,7 @@
 package level4.operation
 
 import exception.CustomDividedZeroException
-import java.lang.RuntimeException
+import exception.InvalidTypeException
 
 class DivideOperation : AbstractOperation {
     override fun operate(a: Number, b: Number): Number = when(b) {
@@ -13,7 +13,7 @@ class DivideOperation : AbstractOperation {
                 is Long -> a.div(b)
                 is Float -> a.div(b)
                 is Double -> a.div(b)
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
         is Long -> {
@@ -24,7 +24,7 @@ class DivideOperation : AbstractOperation {
                 is Long -> a.div(b)
                 is Float -> a.div(b)
                 is Double -> a.div(b)
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
         is Float -> {
@@ -35,7 +35,7 @@ class DivideOperation : AbstractOperation {
                 is Long -> a.div(b)
                 is Float -> a.div(b)
                 is Double -> a.div(b)
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
         is Double -> {
@@ -46,10 +46,10 @@ class DivideOperation : AbstractOperation {
                 is Long -> a.div(b)
                 is Float -> a.div(b)
                 is Double -> a.div(b)
-                else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+                else -> throw InvalidTypeException()
             }
         }
 
-        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+        else -> throw InvalidTypeException()
     }
 }

@@ -1,6 +1,6 @@
 package level4.operation
 
-import java.lang.RuntimeException
+import exception.InvalidTypeException
 
 class MultipleOperation : AbstractOperation {
 
@@ -29,6 +29,6 @@ class MultipleOperation : AbstractOperation {
         a is Double && b is Float -> a.times(b)
         a is Double && b is Double -> a.times(b)
 
-        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+        else -> throw InvalidTypeException()
     }
 }

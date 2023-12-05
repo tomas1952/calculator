@@ -1,6 +1,6 @@
 package level4.operation
 
-import java.lang.RuntimeException
+import exception.InvalidTypeException
 
 class AddOperation : AbstractOperation {
     override fun operate(a: Number, b: Number): Number = when {
@@ -28,6 +28,6 @@ class AddOperation : AbstractOperation {
         a is Double && b is Float -> a.plus(b)
         a is Double && b is Double -> a.plus(b)
 
-        else -> throw RuntimeException("처리할 수 없는 타입입니다.")
+        else -> throw InvalidTypeException()
     }
 }
